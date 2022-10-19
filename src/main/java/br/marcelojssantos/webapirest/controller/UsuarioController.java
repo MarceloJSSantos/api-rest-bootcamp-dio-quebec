@@ -37,4 +37,9 @@ public class UsuarioController {
     public void delete(@PathVariable() Integer id){
         usuarioRepository.delete(id);
     }
+
+    @PatchMapping
+    public Usuario updateUsuario(@RequestBody Usuario usuario){
+        return usuarioRepository.save(usuario);
+    }
 }
