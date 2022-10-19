@@ -1,5 +1,7 @@
 package br.marcelojssantos.webapirest.repository;
 
+import br.marcelojssantos.webapirest.handler.BusinessException;
+import br.marcelojssantos.webapirest.handler.CampoObrigatórioException;
 import br.marcelojssantos.webapirest.model.Usuario;
 import org.springframework.stereotype.Repository;
 
@@ -16,11 +18,16 @@ public class UsuarioRepository{
     }
 
     public Usuario save(Usuario usuario){
-        if(usuario.getId()==null){
+        if(usuario.getLogin()==null)
+            throw new CampoObrigatórioException("LOGIN");
+        if(usuario.getPassword()==null)
+            throw new CampoObrigatórioException("PASSWORD");
+
+        if(usuario.getId()==null)
             System.out.println("SAVE - Recebendo USUÁRIO na camada de repositório!");
-        } else{
+        else
             System.out.println("UPDATE - Recebendo USUÁRIO na camada de repositório!");
-        }
+
         return usuario;
     }
 
