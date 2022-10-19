@@ -27,7 +27,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{login}")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     public Usuario findByLogin(@PathVariable("login") String login){
         return usuarioRepository.findByLogin(login);
     }
