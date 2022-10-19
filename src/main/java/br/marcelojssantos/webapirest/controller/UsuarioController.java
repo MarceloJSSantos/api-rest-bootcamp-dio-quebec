@@ -38,7 +38,7 @@ public class UsuarioController {
         usuarioRepository.delete(id);
     }
 
-    @PatchMapping
+    @PutMapping
     public Usuario updateUsuario(@RequestBody Usuario usuario){
         return usuarioRepository.save(usuario);
     }
